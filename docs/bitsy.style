@@ -1,0 +1,48 @@
+{
+	"pageSetup": { 
+		"size":"A4",
+		"margin-top": "1cm",
+		"margin-bottom": "2cm",
+		"margin-left":"2cm",
+		"margin-right":"2cm"
+	},
+	"styles": [
+                ["title" , {
+                    "parent": "normal",
+                    "fontSize": 20,
+                    "textColor": "darkblue"
+                }],
+                ["heading1" , {
+                    "parent": "normal",
+                    "fontSize": 18,
+                    "keepWithNext": true,
+                    "spaceAfter": 20,
+                    "spaceBefore": 40,
+                    "textColor": "darkblue"
+                }],
+                ["heading2" , {
+                    "parent": "normal",
+                    "fontSize": 16,
+                    "keepWithNext": true,
+                    "spaceAfter": 15,
+                    "spaceBefore": 30,
+                    "textColor": "darkblue"
+                }],
+                ["normal", {
+                    "fontSize": 12,
+                    "alignment":"left"
+                }],
+		["footertable", {
+			"commands": [
+				[ "VALIGN", [ 0, 0 ], [ -1, -1 ], "TOP" ]
+			]
+		}],
+                ["redbox" , {
+			"textColor": "red"
+		}],
+                ["rightalign" , {
+			"parent": "bodytext",
+			"alignment": "TA_RIGHT"
+		}]
+	]
+}

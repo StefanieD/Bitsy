@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+	<meta name="robots" content="noindex" />
+
+	<title>File base/Debugger/IDebugger.php | BitsyAPI</title>
+
+	<script type="text/javascript" src="resources/combined.js?394153670"></script>
+	<script type="text/javascript" src="elementlist.js?1510952631"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Packages</h3>
+			<ul>
+				<li><a href="package-base.html">base</a>
+						</li>
+				<li><a href="package-Button.html">Button</a>
+						</li>
+				<li><a href="package-Controller.html">Controller</a>
+						</li>
+				<li><a href="package-Database.html">Database</a>
+						</li>
+				<li class="active"><a href="package-Debugger.html">Debugger</a>
+						</li>
+				<li><a href="package-Element.html">Element</a>
+						</li>
+				<li><a href="package-File.html">File</a>
+						</li>
+				<li><a href="package-Form.html">Form</a>
+						</li>
+				<li><a href="package-Group.html">Group</a>
+						</li>
+				<li><a href="package-Http.html">Http</a>
+						</li>
+				<li><a href="package-Input.html">Input</a>
+						</li>
+				<li><a href="package-Layout.html">Layout</a>
+						</li>
+				<li><a href="package-Model.html">Model</a>
+						</li>
+				<li><a href="package-None.html">None</a>
+						</li>
+				<li><a href="package-Number.html">Number</a>
+						</li>
+				<li><a href="package-PHP.html">PHP</a>
+						</li>
+				<li><a href="package-Section.html">Section</a>
+						</li>
+				<li><a href="package-Template.html">Template</a>
+						</li>
+				<li><a href="package-Text.html">Text</a>
+						</li>
+				<li><a href="package-View.html">View</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Bitsy_Debugger_ErrorDebugger.html">Bitsy_Debugger_ErrorDebugger</a></li>
+				<li><a href="class-Bitsy_Debugger_LogDebugger.html">Bitsy_Debugger_LogDebugger</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li class="active"><a href="class-Bitsy_Debugger_IDebugger.html">Bitsy_Debugger_IDebugger</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="package-Debugger.html" title="Summary of Debugger"><span>Package</span></a>
+			</li>
+			<li>
+				<a href="class-Bitsy_Debugger_IDebugger.html" title="Summary of Bitsy_Debugger_IDebugger"><span>Class</span></a>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<pre><code><span id="1" class="l"><a class="l" href="#1"> 1: </a><span class="xlang">&lt;?php</span>
+</span><span id="2" class="l"><a class="l" href="#2"> 2: </a>
+</span><span id="3" class="l"><a class="l" href="#3"> 3: </a><span class="php-comment">/**
+</span></span><span id="4" class="l"><a class="l" href="#4"> 4: </a><span class="php-comment"> *
+</span></span><span id="5" class="l"><a class="l" href="#5"> 5: </a><span class="php-comment"> * @author Stefanie Drost &lt;stefaniedrost@gmx.de&gt;
+</span></span><span id="6" class="l"><a class="l" href="#6"> 6: </a><span class="php-comment"> * @package Debugger
+</span></span><span id="7" class="l"><a class="l" href="#7"> 7: </a><span class="php-comment"> * @version 0.1.0
+</span></span><span id="8" class="l"><a class="l" href="#8"> 8: </a><span class="php-comment"> */</span>
+</span><span id="9" class="l"><a class="l" href="#9"> 9: </a><span class="php-keyword1">interface</span> <a id="Bitsy_Debugger_IDebugger" href="#Bitsy_Debugger_IDebugger">Bitsy_Debugger_IDebugger</a>
+</span><span id="10" class="l"><a class="l" href="#10">10: </a>{
+</span><span id="11" class="l"><a class="l" href="#11">11: </a>    <span class="php-keyword1">const</span> <a id="LEVEL_ERROR" href="#LEVEL_ERROR">LEVEL_ERROR</a>   = <span class="php-num">1</span>;
+</span><span id="12" class="l"><a class="l" href="#12">12: </a>    <span class="php-keyword1">const</span> <a id="LEVEL_WARNING" href="#LEVEL_WARNING">LEVEL_WARNING</a> = <span class="php-num">2</span>;
+</span><span id="13" class="l"><a class="l" href="#13">13: </a>    <span class="php-keyword1">const</span> <a id="LEVEL_INFO" href="#LEVEL_INFO">LEVEL_INFO</a>    = <span class="php-num">3</span>;
+</span><span id="14" class="l"><a class="l" href="#14">14: </a>    
+</span><span id="15" class="l"><a class="l" href="#15">15: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <span class="php-keyword2">log</span>(<span class="php-var">$message</span>, <span class="php-var">$level</span>);
+</span><span id="16" class="l"><a class="l" href="#16">16: </a>}
+</span><span id="17" class="l"><a class="l" href="#17">17: </a></span></code></pre>
+
+	<div id="footer">
+		BitsyAPI API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>
