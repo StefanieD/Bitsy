@@ -2,19 +2,20 @@
 /**
  * Class for models. This class contains essential functions for retrieving data
  * from the database.
- * 
+ *
  * @author Stefanie Drost (2012)
  * @package Model
  * @version 0.1.0
  */
-class Bitsy_Model_Abstract extends Bitsy_Model_Database_Connector{
+class Bitsy_Model_Abstract extends Bitsy_Model_Database_Connector
+{
 
     /*
      * protected variables
      */
     protected $_table;
     
-    public function __construct() 
+    public function __construct()
     {
         parent::__construct();
         $this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -23,11 +24,11 @@ class Bitsy_Model_Abstract extends Bitsy_Model_Database_Connector{
     /**
      * Get rows from DB-Table.
      * If column is set, only data of column will be returned.
-     * 
+     *
      * @param String $column
-     * @return array 
+     * @return array
      */
-    public function getData($column = null) 
+    public function getData($column = null)
     {
         if($column === null) {
             $data = array();
@@ -48,14 +49,14 @@ class Bitsy_Model_Abstract extends Bitsy_Model_Database_Connector{
     
     /**
      * Gets the data for one row filtered by id.
-     * 
+     *
      * @param int $id
-     * @return array The result row. Return false, if now row with given 
+     * @return array The result row. Return false, if now row with given
      * id has been found.
      */
     public function getDataById($id)
     {
-        $sql = $this->prepare('SELECT * FROM '. $this->_table . 
+        $sql = $this->prepare('SELECT * FROM '. $this->_table .
                 ' WHERE id = ' . $id);
         $sql->execute();
         $data = $sql->fetch(PDO::FETCH_ASSOC);
@@ -65,7 +66,7 @@ class Bitsy_Model_Abstract extends Bitsy_Model_Database_Connector{
     
     /**
      * Inserts a new row to the table.
-     * 
+     *
      * @param array $rowData An associated array with column and value.
      * @return int The id of the new row.
      */
@@ -90,12 +91,12 @@ class Bitsy_Model_Abstract extends Bitsy_Model_Database_Connector{
         return $this->lastInsertId();
     }
     
-    public function getTable() 
+    public function getTable()
     {
         return $this->_table;
     }
     
-    public function setTable($table) 
+    public function setTable($table)
     {
         $this->_table = $table;
     }

@@ -2,13 +2,13 @@
 /**
  * FrontController of Bitsy.
  * Route to controller with action and set layouts, views, or templates.
- * 
+ *
  * @author Stefanie Drost <stefaniedrost@gmx.de>
  * @package base
  * @version 0.1.0
  *
  */
-class Bitsy_FrontController 
+class Bitsy_FrontController
 {
 
     /*
@@ -27,11 +27,11 @@ class Bitsy_FrontController
 
     /**
      * Handles url parameters. Checking for controller, action or arguments.
-     * 
+     *
      * @param Bitsy_Http_Request $request An request object initialized in application index.php.
      * @param Bitsy_Http_Response $response An response object initialized in application index.php.
      */
-    public static function call(Bitsy_Http_Request $request, Bitsy_Http_Response $response) 
+    public static function call(Bitsy_Http_Request $request, Bitsy_Http_Response $response)
     {
         if ($request->issetGet("controller") && $request->getGet("controller") != "") {
             $calledController = htmlentities($request->getGet("controller"));
@@ -55,13 +55,13 @@ class Bitsy_FrontController
 
     /**
      * Execute requested url.
-     * 
+     *
      * @param Bitsy_Http_Request $request
      * @param Bitsy_Http_Response $response
      */
-    public static function run(Bitsy_Http_Request $request, Bitsy_Http_Response $response) 
+    public static function run(Bitsy_Http_Request $request, Bitsy_Http_Response $response)
     {
-//         require 'Controller/Error.php
+		//require 'Controller/Error.php
         self::initRouteValues($request);
         
         // get controller class
@@ -89,9 +89,9 @@ class Bitsy_FrontController
     
     /**
      * Calls the routed action of the controller. Adds a view instance to controller.
-     * 
-     * @param Bitsy_Http_Request $request 
-     * @param Bitsy_Http_Response $response 
+     *
+     * @param Bitsy_Http_Request $request
+     * @param Bitsy_Http_Response $response
      */
     private static function callControllerWithView(Bitsy_Http_Request $request, Bitsy_Http_Response $response)
     {

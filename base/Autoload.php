@@ -1,27 +1,42 @@
 <?php
 /**
- * Bitsy autoloader class. 
- * 
+ * Bitsy autoloader class.
+ *
  * @author Stefanie Drost <stefaniedrost@gmx.de>
  * @package base
  * @version 0.1.0
  */
-class Bitsy_Autoload 
+class Bitsy_Autoload
 {
 
     /**
      * Load classes with Bitsy_ namespace.
-     * 
-     * @param String $className 
+     *
+     * @param String $className
      */
-    public static function load($className) 
+    public static function load($className)
     {
         if (substr($className, 0, 6) == "Bitsy_") {
-            $classFile = Bitsy_Config::getBitsyBasePath() . "/" . 
-                    str_replace("_", "/", substr($className, 6)) . ".php";
-            if (file_exists($classFile)) {
-                require_once($classFile);
-            }
+        	
+        	// load main files
+        	$classFile = Bitsy_Config::getBitsyBasePath() . "/" .
+        			str_replace("_", "/", substr($className, 6)) . ".php";
+        	
+        	if (!file_exists($classFile)) {
+        		// check in plugins
+        		$classFile = Bitsy_Config::getBitsyPluginPath() . "/" .
+        				str_replace("_", "/", substr($className, 6)) . ".php";
+        		
+        		if (file_exists($classFile)) {
+	        		require_once($classFile);
+        		}
+        		else {
+        			throw new Exception('File not found');
+        		}
+        	}
+        	else{
+        		require_once($classFile);
+        	}
         }
     }
 
@@ -29,12 +44,12 @@ class Bitsy_Autoload
     private function __clone() {}
     
     /**
-     * Register new autoloader. 
+     * Register new autoloader.
      * An autoloader for each project is recommended.
-     * 
-     * @param type $autoloader 
+     *
+     * @param type $autoloader
      */
-    public static function register($autoloader = null) 
+    public static function register($autoloader = null)
     {
         if ($autoloader === null) {
             spl_autoload_register(array('Bitsy_Autoload', 'load'));

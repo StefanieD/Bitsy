@@ -2,12 +2,12 @@
 /**
  * Config class for Bitsy.
  * Stores important settings of project.
- * 
+ *
  * @author Stefanie Drost <stefaniedrost@gmx.de>
  * @package base
  * @version 0.1.0
  */
-class Bitsy_Config 
+class Bitsy_Config
 {
 
     /*
@@ -16,14 +16,14 @@ class Bitsy_Config
     private static $iniGroups = array();
     private static $iniGroupSettings = array();
     private static $currentSettings;
-    private static $environments = array("development", "live");
+    private static $environments = array("development", "production");
 
     /**
      * Read config ini-file of project, store groups and their settings.
-     * 
+     *
      * @param String $path path of ini
      */
-    public static function readINI($path) 
+    public static function readINI($path)
     {
         if (file_exists($path)) {
             self::$iniGroupSettings = parse_ini_file($path, TRUE);
@@ -59,19 +59,19 @@ class Bitsy_Config
     /**
      * Checks if project root is defined in ini-file. Otherwise throw Exception.
      */
-    private static function checkForProjectRoot() 
+    private static function checkForProjectRoot()
     {
         if(array_search("main", self::$iniGroups) === false) {
             if(!array_key_exists("project_root", self::$iniGroupSettings["main"])) {
                 throw new Exception("Projekt-Root wurde in Ini-Datei nicht angegeben!");
             }
             throw new Exception("Ini-Datei enthält keine main-Sektion!");
-        } 
+        }
     }
     
     /**
-     * Gets the environment of project. Possible values are development and live.
-     * 
+     * Gets the environment of project. Possible values are development and production.
+     *
      * The settings of the environment are used for the project.
      */
     private static function initEnvironment()
@@ -89,7 +89,7 @@ class Bitsy_Config
     
     private static function setEnvironmentSettings($environment)
     {
-        if(array_search($environment, self::$environments) !== false || 
+        if(array_search($environment, self::$environments) !== false ||
                 array_search($environment, self::$environments) !== false) {
             self::$currentSettings = self::$iniGroupSettings[$environment];
         } else {
@@ -102,9 +102,19 @@ class Bitsy_Config
         return self::$iniGroups;
     }
     
+    public static function getBitsyRoot()
+    {
+    	return dirname(dirname(__FILE__));
+    }
+    
     public static function getBitsyBasePath()
     {
         return dirname(__FILE__);
+    }
+    
+    public static function getBitsyPluginPath()
+    {
+    	return self::getBitsyRoot() . "/plugins";
     }
     
     public static function getProjectRoot()
@@ -114,7 +124,7 @@ class Bitsy_Config
     
     public static function getProjectClasses()
     {
-        return self::getProjectRoot() . "/application";
+        return self::getProjectRoot() . "application";
     }
     
     public static function getEnvironment()
@@ -132,7 +142,7 @@ class Bitsy_Config
         if(isset(self::$currentSettings[$setting])) {
             return self::$currentSettings[$setting];
         } else {
-            throw new Exception("Das Attribut <b>" . $setting . 
+            throw new Exception("Das Attribut <b>" . $setting .
                     "</b> wurde in der Ini-Datei nicht angegeben.");
         }
     }

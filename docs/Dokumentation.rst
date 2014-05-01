@@ -86,7 +86,8 @@ Main
 | environment  | Die Eigenschaft environment definiert, ob sie im  |
 |              | Entwicklungsmodus arbeiten oder im Live-System    |
 |              | Ihrer Webanwendung.                               |
-|              | Mögliche Werte sind *development* oder *live*     |
+|              | Mögliche Werte sind *development* oder 		   |
+|			   | *production*    								   |
 |              | Die Einstellung für die jeweilige Umgebung werden |
 |              | in den dafür folgenden Blöcken angegeben.         |
 +--------------+---------------------------------------------------+
@@ -95,7 +96,7 @@ Sie können ebenfalls Einstellungen für die verschiedenen Produktionsumgebungen
 setzen. Die Möglichkeiten können der folgenden Tabelle entnommen werden.
 
 
-Umgebung development oder live
+Umgebung development oder production
 ------------------------------
 
 

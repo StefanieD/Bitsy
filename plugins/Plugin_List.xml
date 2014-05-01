@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list>
+	<!-- Navigation Plugin -->
+	<plugin>
+        <name>Navigation Plugin</name>
+        <description>Mit diesem Plugin können Navigationen einfach erstellt werden.</description>
+        <path>plugins/Navigation</path>
+    </plugin>
+    
+	<!-- XML Plugin -->
     <plugin>
         <name>XML Komponente</name>
         <description>Mit diesem Plugin können XML-Daten ausgelesen, 
             geschrieben und verändert werden.</description>
-        <path>XML</path>
+        <path>plugins/Xml</path>
     </plugin>
+    <!-- Couchbase Plugin -->
+    <!-- Elasticsearch Plugin -->
 </list>
