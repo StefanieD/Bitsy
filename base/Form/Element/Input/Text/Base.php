@@ -9,13 +9,19 @@
  */
 class Bitsy_Form_Element_Input_Text_Base extends Bitsy_Form_Element_Abstract
 {
+	const ELEMENT_NAME = 'bitsy-text-element';
+	
+	private $attributes = array(
+			"name"     =>  self::ELEMENT_NAME
+	);
+	
     /**
      * Wrapps html with tags of element.
      */
     protected function addWrapper()
     {
         if (isset($this->attributes["label"])) {
-            $this->html = '<span class="bitsy-form-label">' . 
+            $this->html = '<span class="bitsy-form-label">' .
                     $this->attributes["label"] . "</span>" . $this->html;
         }
     }

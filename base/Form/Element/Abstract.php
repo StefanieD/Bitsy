@@ -13,14 +13,14 @@ class Bitsy_Form_Element_Abstract implements Bitsy_Form_Element_IElement
      * protected variables
      */
     protected $html = "";
-    protected $attributes = array(
+    private $attributes = array(
         "class"     =>  "bitsy-form-element",
         "id"        =>  "bitsy-form-element"
     );
     
     public function validate(){}
     
-    public function __toString() 
+    public function __toString()
     {
         $this->getHTML();
         return "<div>" . $this->html . "</div>";
@@ -40,6 +40,11 @@ class Bitsy_Form_Element_Abstract implements Bitsy_Form_Element_IElement
         if (isset($this->attributes["id"])) {
             $this->html .= ' id="' . $this->attributes["id"] . '" ';
         }
+    }
+    
+    protected function getAttributes()
+    {
+    	return $this->attributes;
     }
     
     public function setClass(string $class)
