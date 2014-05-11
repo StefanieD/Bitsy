@@ -1,0 +1,26 @@
+<!-- success messages -->
+<?php if ( Bitsy_ViewFacade::getSuccessMessages() ) : ?>
+	<?php foreach ( Bitsy_ViewFacade::getSuccessMessages() as $success ) : ?>
+		<div class="bitsy-feedback-success">
+			<?php echo $success; ?>
+		</div>
+	<?php endforeach; ?>
+<?php endif; ?>
+
+<!-- notify messages -->
+<?php if ( Bitsy_ViewFacade::getNotifyMessages() ) : ?>
+	<?php foreach ( Bitsy_ViewFacade::getNotifyMessages() as $notify ) : ?>
+		<div class="bitsy-feedback-notify">
+			<?php echo $notify; ?>
+		</div>
+	<?php endforeach; ?>
+<?php endif; ?>
+
+<!-- error messages -->
+<?php if ( Bitsy_ViewFacade::getErrorMessages() ) : ?>
+	<?php foreach ( Bitsy_ViewFacade::getErrorMessages() as $error ) : ?>
+		<div class="bitsy-feedback-error">
+			<?php echo $error; ?>
+		</div>
+	<?php endforeach; ?>
+<?php endif; ?>

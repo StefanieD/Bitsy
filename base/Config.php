@@ -107,6 +107,11 @@ class Bitsy_Config
     	return dirname(dirname(__FILE__));
     }
     
+    public static function getBaseUrl()
+    {
+    	return 'http://' . $_SERVER['HTTP_HOST'];
+    }
+    
     public static function getBitsyBasePath()
     {
         return dirname(__FILE__);

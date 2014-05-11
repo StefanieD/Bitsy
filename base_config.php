@@ -4,6 +4,8 @@
 require_once('base/Autoload.php');
 require_once('base/Config.php');
 
+
+
 //set basic paths of framework
 /*$config = Bitsy_Config::getInstance();
 $config->set("bitsy_path", dirname(__FILE__));

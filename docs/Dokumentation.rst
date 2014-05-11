@@ -79,15 +79,15 @@ Main
 +--------------+---------------------------------------------------+
 | Setting      | Beschreibung                                      |
 +==============+===================================================+
-| project_root | Hier muss der Pfad zum Root-Ordner ihres Projektes| 
+| project_root | Hier muss der Pfad zum Root-Ordner ihres Projektes|
 |              | hinterlegt werden. Normalerweise sollte der       |
 |              | Default-Wert "../" genügen.                       |
 +--------------+---------------------------------------------------+
 | environment  | Die Eigenschaft environment definiert, ob sie im  |
 |              | Entwicklungsmodus arbeiten oder im Live-System    |
 |              | Ihrer Webanwendung.                               |
-|              | Mögliche Werte sind *development* oder 		   |
-|			   | *production*    								   |
+|              | Mögliche Werte sind *development* oder            |
+|              | *production*                                      |
 |              | Die Einstellung für die jeweilige Umgebung werden |
 |              | in den dafür folgenden Blöcken angegeben.         |
 +--------------+---------------------------------------------------+
@@ -97,7 +97,7 @@ setzen. Die Möglichkeiten können der folgenden Tabelle entnommen werden.
 
 
 Umgebung development oder production
-------------------------------
+------------------------------------
 
 
 +--------------+---------------------------------------------------+
@@ -760,5 +760,14 @@ Für Formulare sind bereits einige Elemente implementiert, wie beispielsweise
 - Fieldset
 
 Diese können analog zu dem oberen Beispiel eingebunden werden.
+
+Plugins
+===============
+
+Couchbase Plugin
+----------------
+
+Elasticsearch Plugin
+--------------------
 
 

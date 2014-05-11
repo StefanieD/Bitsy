@@ -38,6 +38,11 @@ class Bitsy_Autoload
         		require_once($classFile);
         	}
         }
+        
+        if ( session_status() == PHP_SESSION_NONE) {
+        	session_start();
+        }
+        
     }
 
     private function __construct() {}

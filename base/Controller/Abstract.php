@@ -1,13 +1,13 @@
 <?php
 /**
- * Abstract controller class. This class must be included by 
+ * Abstract controller class. This class must be included by
  * every project contoller.
- * 
+ *
  * @author Stefanie Drost <stefaniedrost@gmx.de>
  * @package Controller
  * @version 0.1.0
  */
-abstract class Bitsy_Controller_Abstract 
+abstract class Bitsy_Controller_Abstract
 {
     /*
      * protected variables
@@ -21,24 +21,30 @@ abstract class Bitsy_Controller_Abstract
     private $request;
     
     /**
-     * 
+     *
      * @param Bitsy_Http_Request $request
      */
-    public function __construct(Bitsy_Http_Request $request) 
+    public function __construct(Bitsy_Http_Request $request)
     {
         $this->request = $request;
     }
 
     /**
-     * Check if controller has index-action and is an 
+     * Check if controller has index-action and is an
      * instance of Bitsy_Controller_Abstract.
-     * 
+     *
      * @param Bitsy_Controller_Abstract $controller
-     * @return boolean 
+     * @return boolean
      */
     public static function isValid($controller) {
         return ($controller instanceof Bitsy_Controller_Abstract
                 && is_callable(array($controller, 'index_Action')));
+    }
+    
+    public function redirect($path, $params = null)
+    {
+    	header('Location: '. Bitsy_Config::getBaseUrl() . '' . $path);
+    	exit;
     }
 
     /**
@@ -49,8 +55,8 @@ abstract class Bitsy_Controller_Abstract
     /**
      * Set layout for view.
      * This function is called by controller with $this->setLayout('name');
-     * 
-     * @param String $layout 
+     *
+     * @param String $layout
      */
     public function setLayout($layout) {
         $this->layout = $layout;

@@ -2,18 +2,25 @@
 <list>
 	<!-- Navigation Plugin -->
 	<plugin>
-        <name>Navigation Plugin</name>
+        <name>Navigation</name>
         <description>Mit diesem Plugin können Navigationen einfach erstellt werden.</description>
         <path>plugins/Navigation</path>
     </plugin>
     
 	<!-- XML Plugin -->
     <plugin>
-        <name>XML Komponente</name>
+        <name>XML</name>
         <description>Mit diesem Plugin können XML-Daten ausgelesen, 
             geschrieben und verändert werden.</description>
         <path>plugins/Xml</path>
     </plugin>
+    
     <!-- Couchbase Plugin -->
+    <plugin>
+        <name>Couchbase</name>
+        <description>Dieses Plugin dient zur Verwendung von Couchbase.</description>
+        <path>plugins/Couchbase</path>
+    </plugin>
+    
     <!-- Elasticsearch Plugin -->
 </list>

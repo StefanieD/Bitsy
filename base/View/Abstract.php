@@ -1,7 +1,7 @@
 <?php
 /**
  * Abstract class for views. Each Layout include this class.
- * 
+ *
  * @author Stefanie Drost <stefaniedrost@gmx.de>
  * @package View
  * @version 0.1.0
@@ -25,13 +25,13 @@ abstract class Bitsy_View_Abstract implements Bitsy_View_IView
     /**
      * Render layout for view.
      * Is called by FrontController.
-     * 
-     * @param Bitsy_Http_Response $response 
+     *
+     * @param Bitsy_Http_Response $response
      */
-    public function display(Bitsy_Http_Response $response) 
+    public function display(Bitsy_Http_Response $response)
     {
         ob_start();
-        $path = Bitsy_Config::getProjectRoot() . "/layouts" . '/' . 
+        $path = Bitsy_Config::getProjectRoot() . "/layouts" . '/' .
                 $this->_layout . ".phtml";
 
         if (file_exists($path)) {
@@ -46,10 +46,10 @@ abstract class Bitsy_View_Abstract implements Bitsy_View_IView
     /**
      * Add content to view. This function can be called from the controller with
      * $this->view->addContent(array('variable' => 'content');
-     * 
+     *
      * @param array $content
      */
-    public function addContent($content) 
+    public function addContent($content)
     {
         foreach($content as $key => $val) {
             $this->_viewContents[$key] = $val;
@@ -60,9 +60,9 @@ abstract class Bitsy_View_Abstract implements Bitsy_View_IView
     /**
      * Magic method of views for getting variables defined in controllers.
      * @param type $key
-     * @return type 
+     * @return type
      */
-    public function __get($key) 
+    public function __get($key)
     {
         if (isset($this->_viewContents[$key])) {
             return $this->_viewContents[$key];
@@ -74,17 +74,33 @@ abstract class Bitsy_View_Abstract implements Bitsy_View_IView
      * Include content of view page.
      * This function is called in layout page.
      */
-    public function includeContent() 
+    public function includeContent()
     {
         if (isset($this->_viewPath)) {
-            include(Bitsy_Config::getProjectClasses() . "/views". '/' . 
+            include(Bitsy_Config::getProjectClasses() . "/views". '/' .
                     $this->_viewPath . '.phtml');
         } else {
             echo "Die View wurde von keinem Controller mit Daten gefuettert!";
         }
     }
     
-    public function setViewPath($path) 
+    /**
+     * Include feedback messages.
+     * This function is called in layout page.
+     */
+    public function displayFeedbackMessages()
+    {
+    	if ( !file_exists(Bitsy_Config::getProjectClasses() . '/templates/feedback/messages.phtml') ) {
+	    	include(Bitsy_Config::getBitsyBasePath() . '/View/Template/Feedback/messages.phtml');
+    	}
+    	else {
+    		include(Bitsy_Config::getProjectClasses() . '/templates/feedback/messages.phtml');
+    	}
+    	
+    	Bitsy_Model_Session::getFeedback()->clearMessages();
+    }
+    
+    public function setViewPath($path)
     {
         $this->_viewPath = $path;
         return $this;
@@ -94,12 +110,12 @@ abstract class Bitsy_View_Abstract implements Bitsy_View_IView
      * Use a template for parameters.
      * This function can be called from the controller with
      * $this->view->useTemplate('template', array('variable' => 'content'));
-     * 
+     *
      * @param String $template template name
      * @param array $var
-     * @return String   content of the template 
+     * @return String   content of the template
      */
-    public function useTemplate($template, $var) 
+    public function useTemplate($template, $var)
     {
         $temp = new Bitsy_View_Template();
         return $temp->createTemplateContent($template, $var);
