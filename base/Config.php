@@ -17,6 +17,7 @@ class Bitsy_Config
     private static $iniGroupSettings = array();
     private static $currentSettings;
     private static $environments = array("development", "production");
+    private static $currentEnvironment;
 
     /**
      * Read config ini-file of project, store groups and their settings.
@@ -79,6 +80,7 @@ class Bitsy_Config
         if(array_search("main", self::$iniGroups) !== false) {
             if(array_key_exists("environment", self::$iniGroupSettings["main"])) {
                 self::setEnvironmentSettings(self::$iniGroupSettings["main"]["environment"]);
+                self::$currentEnvironment = self::$iniGroupSettings["main"]["environment"];
             } else {
                 throw new Exception("Attrinbut Environment wurde in Ini-Datei nicht angegeben!");
             }
@@ -132,6 +134,11 @@ class Bitsy_Config
         return self::getProjectRoot() . "application";
     }
     
+    public static function getProjectConfigs()
+    {
+    	return self::getProjectRoot() . "config";
+    }
+    
     public static function getEnvironment()
     {
         return self::$iniGroupSettings["main"]["environment"];
@@ -140,6 +147,26 @@ class Bitsy_Config
     public static function getLogFile()
     {
         return self::$currentSettings["log_file"];
+    }
+    
+    public static function getCurrentEnvironment()
+    {
+    	return self::$currentEnvironment;
+    }
+    
+    public static function getPluginConfig($pluginName)
+    {
+    	$projectConfigPath = self::getProjectConfigs() . '/' . $pluginName . '.ini';
+    	
+    	if ( file_exists($projectConfigPath)) {
+    		$result = parse_ini_file($projectConfigPath, true);
+    	}
+    	else {
+    		$bitsyConfigPath = self::getBitsyPluginPath() . '/' . ucfirst($pluginName) . '/config.ini';
+    		$result = parse_ini_file($bitsyConfigPath, true);
+    	}
+    	
+    	return $result[self::getCurrentEnvironment()];
     }
     
     public static function getDatabaseSettingByName($setting)

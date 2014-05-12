@@ -37,12 +37,12 @@ class Bitsy_Autoload
         	else{
         		require_once($classFile);
         	}
+        	
+        	//start session
+        	if ( session_status() == PHP_SESSION_NONE) {
+        		session_start();
+        	}
         }
-        
-        if ( session_status() == PHP_SESSION_NONE) {
-        	session_start();
-        }
-        
     }
 
     private function __construct() {}

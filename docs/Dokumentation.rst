@@ -307,6 +307,15 @@ für Daten, welche über GET-Werte geliefert werden.
    PageBreak
 
 
+Feedback-Nachrichten
+--------------------
+
+- nach Verarbeitung von Controller-Aktionen oft Feedback-Nachrichten gewünscht
+- es gibt die Möglichkeiten Error-, Success- oder Notify-Nachrichten zu erstellen
+- Codebeispiel Feedback mit redirect
+
+
+
 Views
 =====
 
@@ -761,11 +770,64 @@ Für Formulare sind bereits einige Elemente implementiert, wie beispielsweise
 
 Diese können analog zu dem oberen Beispiel eingebunden werden.
 
+Sessions
+========
+
+- Bitsy_Model_Session
+- enthält die Methoden get und set
+- Codebeispiele
+
+
+
+
 Plugins
 ===============
 
 Couchbase Plugin
 ----------------
+
+- Config File:
+- in den ordner config eine neue Datei couchbase.ini erstellen
+- Inhalt z.B. :
+[development]
+couchbase_user = 
+couchbase_password = 
+couchbase_host = 127.0.0.1
+couchbase_port = 8091
+couchbase_bucket = my_bucket
+
+[production]
+couchbase_user = 
+couchbase_password = 
+couchbase_host = 127.0.0.1
+couchbase_port = 8091
+couchbase_bucket = my_bucket
+
+- falls keine couchbase.ini angelegt wird, werden die Standard-Werte aus Bitsy genommen:
+
+[development]
+couchbase_user = 
+couchbase_password = 
+couchbase_host = 127.0.0.1
+couchbase_port = 8091
+couchbase_bucket = default
+
+[production]
+couchbase_user = 
+couchbase_password = 
+couchbase_host = 127.0.0.1
+couchbase_port = 8091
+couchbase_bucket = default
+
+- bei Instanziierung von $couchbaseModel = new Bitsy_Couchbase_Model_Couchbase() wird eine Verbindung aufgebaut
+- Couchbase Plugin kann auf direktem Wege genutzt werden wie oben beschrieben
+- oder eigenes Model verwenden und Bitsy-Model erweitern
+
+- Model enthält die folgenden Methoden
+- getItems
+- getBucketInfo
+
+
 
 Elasticsearch Plugin
 --------------------
