@@ -102,7 +102,7 @@ class Bitsy_Http_Request
     public function getGet($key)
     {
         if ($this->issetGet($key)) {
-            return $this->_get[$key];
+            return trim($this->_get[$key]);
         }
         return null;
     }
@@ -115,7 +115,7 @@ class Bitsy_Http_Request
     public function getPost($key)
     {
         if ($this->issetPost($key)) {
-            return $this->_post[$key];
+            return trim($this->_post[$key]);
         }
         return null;
     }
