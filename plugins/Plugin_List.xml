@@ -15,6 +15,27 @@
         <path>plugins/Xml</path>
     </plugin>
     
+    <!-- Admin Plugin -->
+    <plugin>
+        <name>Admin</name>
+        <description></description>
+        <path>plugins/Admin</path>
+    </plugin>
+    
+    <!-- CMS Plugin -->
+    <plugin>
+        <name>CMS</name>
+        <description></description>
+        <path>plugins/Cms</path>
+    </plugin>
+    
+    <!-- Monitorin Plugin -->
+    <plugin>
+        <name>Monitoring</name>
+        <description></description>
+        <path>plugins/Monitoring</path>
+    </plugin>
+    
     <!-- Couchbase Plugin -->
     <plugin>
         <name>Couchbase</name>
@@ -23,4 +44,9 @@
     </plugin>
     
     <!-- Elasticsearch Plugin -->
+    <plugin>
+        <name>Elasticsearch</name>
+        <description></description>
+        <path>plugins/Elasticsearch</path>
+    </plugin>
 </list>

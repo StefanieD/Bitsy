@@ -79,9 +79,23 @@ abstract class Bitsy_View_Abstract implements Bitsy_View_IView
         if (isset($this->_viewPath)) {
             include(Bitsy_Config::getProjectClasses() . "/views". '/' .
                     $this->_viewPath . '.phtml');
-        } else {
+        }
+        else {
             echo "Die View wurde von keinem Controller mit Daten gefuettert!";
         }
+    }
+    
+    /**
+     * Include content of partial element.
+     * This function can be called within layouts or views.
+     */
+    public function renderPartial($path)
+    {
+    	$file = Bitsy_Config::getProjectClasses() . '/views'. '/' .$path . '.phtml';
+    	
+    	if (file_exists($file)) {
+    		include $file;
+    	}
     }
     
     /**

@@ -1,0 +1,25 @@
+/* 
+    Document   : bitsy
+    Created on : 09.12.2012, 16:03:38
+    Author     : Stefanie Drost
+    Description:
+        Contains style elements of Bitsy Framework.
+*/
+/*------ COLORS ---------*/
+body {
+  background-color: #404180; }
+
+.bitsy_content, .bitsy_header, .bitsy_footer {
+  background-color: white;
+  border: #c0c0c0 solid 1px;
+  width: 940px;
+  margin: 0;
+  padding: 10px 10px 10px 10px;
+  position: relative;
+  float: left; }
+
+.bitsy_content {
+  font-family: sans-serif; }
+
+#bitsy_logo {
+  margin: 10px 10px 10px 10px; }
