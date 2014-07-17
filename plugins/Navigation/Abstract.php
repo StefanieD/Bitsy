@@ -4,7 +4,7 @@
  *
  * @author Stefanie Drost <stefanie.drost@web.de>
  */
-class Bitsy_Navigation_Model_Abstract
+class Bitsy_Navigation_Abstract
 {
 	protected $flow;
 	protected $elements = array();
@@ -14,7 +14,7 @@ class Bitsy_Navigation_Model_Abstract
 	
 	public function __construct()
 	{
-		echo 'in model';
+		
 	}
 	
 	protected function init()
@@ -25,13 +25,32 @@ class Bitsy_Navigation_Model_Abstract
 	/**
 	 * Adds a new element to the navigation.
 	 *
-	 * @param Bitsy_Plugin_Navigation_Model_Element_Abstract $element
-	 * @return Bitsy_Plugin_Navigation_Model_Element_Abstract
+	 * @param Bitsy_Plugin_Navigation_Element_Abstract $element
+	 * @return Bitsy_Plugin_Navigation_Element_Abstract
 	*/
-	public function addElement(Bitsy_Navigation_Model_Element_Abstract $element)
+	public function addElement(Bitsy_Navigation_Element_Abstract $element)
 	{
-		var_dump('add element');
 		array_push($this->elements, $element);
+		
+		return $this;
+	}
+	
+	public function addElements($elements)
+	{
+		foreach ($elements as $element) {
+			$this->addElement($element);
+		}
+	
+		return $this;
+	}
+	
+	public function createElements($elementTitles)
+	{
+		foreach ($elementTitles as $title) {
+			$element = new Bitsy_Navigation_Element($title);
+			$this->addElement($element);
+		}
+	
 		return $this;
 	}
 	

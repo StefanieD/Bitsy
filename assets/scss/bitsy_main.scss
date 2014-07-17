@@ -17,11 +17,9 @@ body {
     
     background-color: $contentBackgroundColor;
     border: $contentBorderColor solid 1px;
-    width: 940px;
+    width: 100%;
     margin: 0;
-    padding: 10px 10px 10px 10px;
     position:relative;
-    float:left
 }
 .bitsy_content {
     font-family: sans-serif;

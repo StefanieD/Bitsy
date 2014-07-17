@@ -3,7 +3,7 @@
  *
  * @author Stefanie Drost <stefaniedrost@gmx.de>
  */
-class Bitsy_Navigation_Model_VerticalNavigation extends Bitsy_Navigation_Model_Abstract
+class Bitsy_Navigation_VerticalNavigation extends Bitsy_Navigation_Abstract
 {
 	protected function init()
 	{

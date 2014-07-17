@@ -15,8 +15,7 @@ body {
   width: 940px;
   margin: 0;
   padding: 10px 10px 10px 10px;
-  position: relative;
-  float: left; }
+  position: relative; }
 
 .bitsy_content {
   font-family: sans-serif; }

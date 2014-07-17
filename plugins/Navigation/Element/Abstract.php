@@ -3,12 +3,13 @@
  *
  * @author Stefanie Drost <stefaniedrost@gmx.de>
  */
-class Bitsy_Navigation_Model_Element_Abstract implements Bitsy_Navigation_Model_Element_Interface
+class Bitsy_Navigation_Element_Abstract implements Bitsy_Navigation_Element_Interface
 {
 	protected $hasSubelements;
 	protected $title;
 	protected $name;
 	protected $url;
+	protected $html;
 	protected $subelements = array();
 	
 	/**
@@ -17,7 +18,7 @@ class Bitsy_Navigation_Model_Element_Abstract implements Bitsy_Navigation_Model_
 	 * @param Bitsy_Plugin_Navigation_Model_Element_Abstract $element
 	 * @return Bitsy_Plugin_Navigation_Model_Element_Abstract
 	 */
-	public function addSubelement(Bitsy_Navigation_Model_Element_Abstract $element)
+	public function addSubelement(Bitsy_Navigation_Element_Abstract $element)
 	{
 		array_push($this->subelements, $element);
 		return $this;
@@ -53,6 +54,17 @@ class Bitsy_Navigation_Model_Element_Abstract implements Bitsy_Navigation_Model_
 	public function getName()
 	{
 		return $this->name;
+	}
+	
+	public function setHtml($html)
+	{
+		$this->html =$html;
+		return $this;
+	}
+	
+	public function getHtml()
+	{
+		return $this->html;
 	}
 	
 	public function setUrl($url)
