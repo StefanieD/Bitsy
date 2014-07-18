@@ -5,7 +5,6 @@
  */
 class Bitsy_Navigation_Element_Abstract implements Bitsy_Navigation_Element_Interface
 {
-	protected $hasSubelements;
 	protected $title;
 	protected $name;
 	protected $url;
@@ -21,6 +20,7 @@ class Bitsy_Navigation_Element_Abstract implements Bitsy_Navigation_Element_Inte
 	public function addSubelement(Bitsy_Navigation_Element_Abstract $element)
 	{
 		array_push($this->subelements, $element);
+		
 		return $this;
 	}
 	
@@ -78,14 +78,12 @@ class Bitsy_Navigation_Element_Abstract implements Bitsy_Navigation_Element_Inte
 		return $this->url;
 	}
 	
-	public function setHasSubelements($hasSubelements)
+	public function hasSubelements()
 	{
-		$this->hasSubelements = $hasSubelements;
-		return $this;
-	}
-	
-	public function getHasSubelements()
-	{
-		return $this->hasSubelements;
+		if (count($this->subelements) > 0) {
+			return true;
+		}
+		
+		return false;
 	}
 }

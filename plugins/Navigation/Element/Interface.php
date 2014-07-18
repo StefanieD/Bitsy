@@ -10,6 +10,5 @@ interface Bitsy_Navigation_Element_Interface
 	public function setUrl($url);
 	public function addSubelement(Bitsy_Navigation_Element_Abstract $element);
 	public function getSubelements();
-	public function setHasSubelements($hasSubelements);
-	public function getHasSubelements();
+	public function hasSubelements();
 }

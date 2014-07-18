@@ -13,7 +13,7 @@ class Bitsy_Navigation_Element extends Bitsy_Navigation_Element_Abstract
 	
 	protected function init()
 	{
-		$html = '<li><a href="#"><span>' . $this->getTitle() . '</span></a></li>';
+		$html = '<a href="#"><span>' . $this->getTitle() . '</span></a>';
 		$this->setHtml($html);
 	}
 }
